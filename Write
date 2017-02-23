@@ -1,0 +1,23 @@
+public static void main(String args[])
+throws FileNotFoundException
+{
+if(args.length!=2) / the input length what we get from the user should not be equal to 2.
+{
+System.out.println("pass 2 arguments");
+System.exit(1);
+}
+String local=args[0];
+String destina=args[1];
+Configuration con=new Configuration ();
+InputStream in=new BufferedInputStream(new FileInpuStream(local));
+try
+{
+FileSystem fsys=FileSystem.get(URI.create(destina),con);// new file system is created 
+OutputStream outst=fsys.create(new path(destina));
+IOUtils.copyBytes(in,outst,4096,true);// the size of bytes is 4096.
+catch (IOException e)
+{
+e.printStackTrace();
+}
+}
+}
