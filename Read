@@ -1,0 +1,23 @@
+public static void main (String args [])
+
+{
+if(args.length!=1)
+{
+System.out.println("Pass an argument");//the argument is received from the user
+system.exit(1);
+}
+String uri=args[0];
+Configuration con=new Configuration();
+try
+{
+FilESystem fs=FileSystem.get(URI.create(uri),con);
+FSDataInputStream in=null;
+in=fs.open(new Path(uri));
+IOUtils.copybytes(in.System.out,4096,false);//the bytes size is 4096
+}
+catch(IOException e) //if any error occurs then exception is passed
+{
+e.printStackTrace();
+}
+}
+}
